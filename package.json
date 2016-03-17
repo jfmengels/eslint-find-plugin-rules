@@ -1,0 +1,38 @@
+{
+  "name": "eslint-find-plugin-rules",
+  "version": "1.0.0",
+  "description": "",
+  "bin": "bin.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfmengels/eslint-find-plugin-rules.git"
+  },
+  "keywords": [],
+  "author": "Jeroen Engels <jfm.engels@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfmengels/eslint-find-plugin-rules/issues"
+  },
+  "homepage": "https://github.com/jfmengels/eslint-find-plugin-rules#readme",
+  "dependencies": {
+    "eslint": "^2.4.0"
+  },
+  "devDependencies": {
+    "xo": "^0.13.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "camelcase": [
+        2,
+        {
+          "properties": "never"
+        }
+      ]
+    }
+  }
+}
