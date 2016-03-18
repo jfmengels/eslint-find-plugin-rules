@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/jfmengels/eslint-find-plugin-rules#readme",
   "dependencies": {
-    "eslint": "^2.4.0"
+    "eslint": "^2.4.0",
+    "lodash.flatmap": "^4.2.0"
   },
   "devDependencies": {
     "xo": "^0.13.0"

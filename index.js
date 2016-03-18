@@ -1,13 +1,21 @@
+'use strict';
+
+var flatMap = require('lodash.flatmap');
 var pluginLoader = require('eslint/lib/config/plugins');
 
+function rename(pluginName) {
+  return function (ruleName) {
+    return pluginName + '/' + ruleName;
+  };
+}
+
+function loadRules(pluginName) {
+  pluginLoader.load(pluginName);
+  var plugin = pluginLoader.get(pluginName);
+  return Object.keys(plugin.rules)
+    .map(rename(pluginName));
+}
+
 module.exports = function findRules(pluginNames) {
-  return pluginNames.map(function (pluginName) {
-    pluginLoader.load(pluginName);
-    var rules = pluginLoader.get(pluginName).rules;
-    return Object.keys(rules).map(function (key) {
-      return pluginName + '/' + key;
-    });
-  }).reduce(function (res, current) {
-    return res.concat(current);
-  }, []);
+  return flatMap(pluginNames, loadRules);
 };
